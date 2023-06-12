@@ -1,0 +1,38 @@
+﻿<Page x:Class="CinemaApp.Views.Pages.FilmsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CinemaApp.Views.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FilmsPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Button Content="Добавить" Style="{StaticResource MainButtonStyle}" Width="150" Height="40" HorizontalAlignment="Left" Margin="10,0,0,0" x:Name="AddNewFilm" Click="AddNewFilmClick"/>
+        <Button Content="Назад" Style="{StaticResource MainButtonStyle}" Width="150" Height="40" HorizontalAlignment="Center" Grid.Column="1" x:Name="BackButton" Click="BackButtonClick"/>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+            <ListView x:Name="MainListView" BorderThickness="0" Height="380">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="10">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                                <TextBlock Text="{Binding FilmName}" Style="{StaticResource LabelTextBlockStyle}" Width="590"/>
+                                <Button Content="Удалить" Uid="{Binding IdFilm}" Style="{StaticResource MainButtonStyle}" Margin="50,0,10,0" x:Name="DeleteButton" Click="DeleteButtonClick"/>
+                                <Button Content="Редактировать" Uid="{Binding IdFilm}" Style="{StaticResource MainButtonStyle}" Margin="10,0,10,0" x:Name="RedactButton" Click="RedactButtonClick"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>

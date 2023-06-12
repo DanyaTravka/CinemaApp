@@ -1,0 +1,1187 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище FilmsDBModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Actors">
+          <Key>
+            <PropertyRef Name="IdActor" />
+          </Key>
+          <Property Name="IdActor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ActorName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="ActorSurname" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ActorsFilms">
+          <Key>
+            <PropertyRef Name="IdActorsFilms" />
+          </Key>
+          <Property Name="IdActorsFilms" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmId" Type="int" Nullable="false" />
+          <Property Name="ActorId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="IdAdmin" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdminLogin" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AdminPassword" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AdminName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AdminSurname" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="AdminPatronymic" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgeLimits">
+          <Key>
+            <PropertyRef Name="IdAgeLimits" />
+          </Key>
+          <Property Name="IdAgeLimits" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AgeLimitValue" Type="nvarchar" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CountryName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="IdEmployee" />
+          </Key>
+          <Property Name="IdEmployee" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeeSurname" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeePatronymic" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeeAge" Type="int" Nullable="false" />
+          <Property Name="GenderId" Type="int" Nullable="false" />
+          <Property Name="EmployeeAdress" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeePhone" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="EmployeePassportSeria" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="EmployeePassportNumber" Type="nvarchar" MaxLength="6" Nullable="false" />
+          <Property Name="PostId" Type="int" Nullable="false" />
+          <Property Name="EmployeeSalary" Type="float" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Films">
+          <Key>
+            <PropertyRef Name="IdFilm" />
+          </Key>
+          <Property Name="IdFilm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="FilmDuration" Type="time" Precision="2" Nullable="false" />
+          <Property Name="FirmId" Type="int" Nullable="false" />
+          <Property Name="CountryId" Type="int" Nullable="false" />
+          <Property Name="AgeLimitId" Type="int" Nullable="false" />
+          <Property Name="FilmDescription" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FilmsGeners">
+          <Key>
+            <PropertyRef Name="FilmsGenresId" />
+          </Key>
+          <Property Name="FilmsGenresId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmId" Type="int" Nullable="false" />
+          <Property Name="GenreId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Firms">
+          <Key>
+            <PropertyRef Name="IdFirm" />
+          </Key>
+          <Property Name="IdFirm" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirmName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenderName" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="IdGenre" />
+          </Key>
+          <Property Name="IdGenre" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GenreName" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="GenreDescription" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Halls">
+          <Key>
+            <PropertyRef Name="IdHall" />
+          </Key>
+          <Property Name="IdHall" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HallNumber" Type="int" Nullable="false" />
+          <Property Name="HallPlaces" Type="int" Nullable="false" />
+          <Property Name="HallRows" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="IdPost" />
+          </Key>
+          <Property Name="IdPost" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PostName" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Requirements">
+          <Key>
+            <PropertyRef Name="IdRequirements" />
+          </Key>
+          <Property Name="IdRequirements" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequirementName" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RequirementsEmployees">
+          <Key>
+            <PropertyRef Name="IdRequirementsEmployees" />
+          </Key>
+          <Property Name="IdRequirementsEmployees" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RequirementId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Responsibilities">
+          <Key>
+            <PropertyRef Name="IdResponsibilities" />
+          </Key>
+          <Property Name="IdResponsibilities" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResponsibilityName" Type="nvarchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ResponsibilitiesEmployees">
+          <Key>
+            <PropertyRef Name="IdResponsibilitiesEmployees" />
+          </Key>
+          <Property Name="IdResponsibilitiesEmployees" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResponsibilityId" Type="int" Nullable="false" />
+          <Property Name="EmployeeId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seances">
+          <Key>
+            <PropertyRef Name="IdSeance" />
+          </Key>
+          <Property Name="IdSeance" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FilmId" Type="int" Nullable="false" />
+          <Property Name="HallId" Type="int" Nullable="false" />
+          <Property Name="SeanceDate" Type="date" Nullable="false" />
+          <Property Name="SeanceStartTime" Type="time" Precision="2" Nullable="false" />
+          <Property Name="SeanceCost" Type="float" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SeanceId" Type="int" Nullable="false" />
+          <Property Name="TicketPlace" Type="int" Nullable="false" />
+          <Property Name="TicketRow" Type="int" Nullable="false" />
+          <Property Name="TicketCost" Type="float" Nullable="false" />
+          <Property Name="TicketPayDate" Type="date" Nullable="false" />
+          <Property Name="TicketType" Type="int" />
+        </EntityType>
+        <Association Name="FK_ActorsFilms_Actors">
+          <End Role="Actors" Type="Self.Actors" Multiplicity="1" />
+          <End Role="ActorsFilms" Type="Self.ActorsFilms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="IdActor" />
+            </Principal>
+            <Dependent Role="ActorsFilms">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorsFilms_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="ActorsFilms" Type="Self.ActorsFilms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="ActorsFilms">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="IdPost" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_AgeLimits">
+          <End Role="AgeLimits" Type="Self.AgeLimits" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeLimits">
+              <PropertyRef Name="IdAgeLimits" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="AgeLimitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_Firms">
+          <End Role="Firms" Type="Self.Firms" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firms">
+              <PropertyRef Name="IdFirm" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="FirmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmsGeners_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="FilmsGeners" Type="Self.FilmsGeners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="FilmsGeners">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmsGeners_Genres">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+          <End Role="FilmsGeners" Type="Self.FilmsGeners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="IdGenre" />
+            </Principal>
+            <Dependent Role="FilmsGeners">
+              <PropertyRef Name="GenreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementsEmployees_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="RequirementsEmployees" Type="Self.RequirementsEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="IdEmployee" />
+            </Principal>
+            <Dependent Role="RequirementsEmployees">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementsEmployees_Requirements">
+          <End Role="Requirements" Type="Self.Requirements" Multiplicity="1" />
+          <End Role="RequirementsEmployees" Type="Self.RequirementsEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requirements">
+              <PropertyRef Name="IdRequirements" />
+            </Principal>
+            <Dependent Role="RequirementsEmployees">
+              <PropertyRef Name="RequirementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsibilitiesEmployees_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ResponsibilitiesEmployees" Type="Self.ResponsibilitiesEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="IdEmployee" />
+            </Principal>
+            <Dependent Role="ResponsibilitiesEmployees">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsibilitiesEmployees_Responsibilities">
+          <End Role="Responsibilities" Type="Self.Responsibilities" Multiplicity="1" />
+          <End Role="ResponsibilitiesEmployees" Type="Self.ResponsibilitiesEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibilities">
+              <PropertyRef Name="IdResponsibilities" />
+            </Principal>
+            <Dependent Role="ResponsibilitiesEmployees">
+              <PropertyRef Name="ResponsibilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seances_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="Seances" Type="Self.Seances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="Seances">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seances_Halls">
+          <End Role="Halls" Type="Self.Halls" Multiplicity="1" />
+          <End Role="Seances" Type="Self.Seances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Halls">
+              <PropertyRef Name="IdHall" />
+            </Principal>
+            <Dependent Role="Seances">
+              <PropertyRef Name="HallId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Seances">
+          <End Role="Seances" Type="Self.Seances" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seances">
+              <PropertyRef Name="IdSeance" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище FilmsDBModelContainer">
+          <EntitySet Name="Actors" EntityType="Self.Actors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActorsFilms" EntityType="Self.ActorsFilms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AgeLimits" EntityType="Self.AgeLimits" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Films" EntityType="Self.Films" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FilmsGeners" EntityType="Self.FilmsGeners" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Firms" EntityType="Self.Firms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Halls" EntityType="Self.Halls" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Requirements" EntityType="Self.Requirements" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequirementsEmployees" EntityType="Self.RequirementsEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Responsibilities" EntityType="Self.Responsibilities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResponsibilitiesEmployees" EntityType="Self.ResponsibilitiesEmployees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seances" EntityType="Self.Seances" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ActorsFilms_Actors" Association="Self.FK_ActorsFilms_Actors">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorsFilms" EntitySet="ActorsFilms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorsFilms_Films" Association="Self.FK_ActorsFilms_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="ActorsFilms" EntitySet="ActorsFilms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Genders" Association="Self.FK_Employees_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Posts" Association="Self.FK_Employees_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_AgeLimits" Association="Self.FK_Films_AgeLimits">
+            <End Role="AgeLimits" EntitySet="AgeLimits" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_Countries" Association="Self.FK_Films_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_Firms" Association="Self.FK_Films_Firms">
+            <End Role="Firms" EntitySet="Firms" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmsGeners_Films" Association="Self.FK_FilmsGeners_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="FilmsGeners" EntitySet="FilmsGeners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmsGeners_Genres" Association="Self.FK_FilmsGeners_Genres">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="FilmsGeners" EntitySet="FilmsGeners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementsEmployees_Employees" Association="Self.FK_RequirementsEmployees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="RequirementsEmployees" EntitySet="RequirementsEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementsEmployees_Requirements" Association="Self.FK_RequirementsEmployees_Requirements">
+            <End Role="Requirements" EntitySet="Requirements" />
+            <End Role="RequirementsEmployees" EntitySet="RequirementsEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsibilitiesEmployees_Employees" Association="Self.FK_ResponsibilitiesEmployees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ResponsibilitiesEmployees" EntitySet="ResponsibilitiesEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsibilitiesEmployees_Responsibilities" Association="Self.FK_ResponsibilitiesEmployees_Responsibilities">
+            <End Role="Responsibilities" EntitySet="Responsibilities" />
+            <End Role="ResponsibilitiesEmployees" EntitySet="ResponsibilitiesEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seances_Films" Association="Self.FK_Seances_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="Seances" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seances_Halls" Association="Self.FK_Seances_Halls">
+            <End Role="Halls" EntitySet="Halls" />
+            <End Role="Seances" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Seances" Association="Self.FK_Tickets_Seances">
+            <End Role="Seances" EntitySet="Seances" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FilmsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Actors">
+          <Key>
+            <PropertyRef Name="IdActor" />
+          </Key>
+          <Property Name="IdActor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ActorName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ActorSurname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ActorsFilms" Relationship="Self.FK_ActorsFilms_Actors" FromRole="Actors" ToRole="ActorsFilms" />
+        </EntityType>
+        <EntityType Name="ActorsFilms">
+          <Key>
+            <PropertyRef Name="IdActorsFilms" />
+          </Key>
+          <Property Name="IdActorsFilms" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmId" Type="Int32" Nullable="false" />
+          <Property Name="ActorId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Actors" Relationship="Self.FK_ActorsFilms_Actors" FromRole="ActorsFilms" ToRole="Actors" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_ActorsFilms_Films" FromRole="ActorsFilms" ToRole="Films" />
+        </EntityType>
+        <EntityType Name="Admins">
+          <Key>
+            <PropertyRef Name="IdAdmin" />
+          </Key>
+          <Property Name="IdAdmin" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdminLogin" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminSurname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="AdminPatronymic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AgeLimits">
+          <Key>
+            <PropertyRef Name="IdAgeLimits" />
+          </Key>
+          <Property Name="IdAgeLimits" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AgeLimitValue" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_AgeLimits" FromRole="AgeLimits" ToRole="Films" />
+        </EntityType>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="IdCountry" />
+          </Key>
+          <Property Name="IdCountry" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Countries" FromRole="Countries" ToRole="Films" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="IdEmployee" />
+          </Key>
+          <Property Name="IdEmployee" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeSurname" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeePatronymic" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeeAge" Type="Int32" Nullable="false" />
+          <Property Name="GenderId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeAdress" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeePhone" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeePassportSeria" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EmployeePassportNumber" Type="String" MaxLength="6" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PostId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeSalary" Type="Double" Nullable="false" />
+          <NavigationProperty Name="Genders" Relationship="Self.FK_Employees_Genders" FromRole="Employees" ToRole="Genders" />
+          <NavigationProperty Name="Posts" Relationship="Self.FK_Employees_Posts" FromRole="Employees" ToRole="Posts" />
+          <NavigationProperty Name="RequirementsEmployees" Relationship="Self.FK_RequirementsEmployees_Employees" FromRole="Employees" ToRole="RequirementsEmployees" />
+          <NavigationProperty Name="ResponsibilitiesEmployees" Relationship="Self.FK_ResponsibilitiesEmployees_Employees" FromRole="Employees" ToRole="ResponsibilitiesEmployees" />
+        </EntityType>
+        <EntityType Name="Films">
+          <Key>
+            <PropertyRef Name="IdFilm" />
+          </Key>
+          <Property Name="IdFilm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FilmDuration" Type="Time" Nullable="false" Precision="2" />
+          <Property Name="FirmId" Type="Int32" Nullable="false" />
+          <Property Name="CountryId" Type="Int32" Nullable="false" />
+          <Property Name="AgeLimitId" Type="Int32" Nullable="false" />
+          <Property Name="FilmDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ActorsFilms" Relationship="Self.FK_ActorsFilms_Films" FromRole="Films" ToRole="ActorsFilms" />
+          <NavigationProperty Name="AgeLimits" Relationship="Self.FK_Films_AgeLimits" FromRole="Films" ToRole="AgeLimits" />
+          <NavigationProperty Name="Countries" Relationship="Self.FK_Films_Countries" FromRole="Films" ToRole="Countries" />
+          <NavigationProperty Name="Firms" Relationship="Self.FK_Films_Firms" FromRole="Films" ToRole="Firms" />
+          <NavigationProperty Name="FilmsGeners" Relationship="Self.FK_FilmsGeners_Films" FromRole="Films" ToRole="FilmsGeners" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Seances_Films" FromRole="Films" ToRole="Seances" />
+        </EntityType>
+        <EntityType Name="FilmsGeners">
+          <Key>
+            <PropertyRef Name="FilmsGenresId" />
+          </Key>
+          <Property Name="FilmsGenresId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmId" Type="Int32" Nullable="false" />
+          <Property Name="GenreId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_FilmsGeners_Films" FromRole="FilmsGeners" ToRole="Films" />
+          <NavigationProperty Name="Genres" Relationship="Self.FK_FilmsGeners_Genres" FromRole="FilmsGeners" ToRole="Genres" />
+        </EntityType>
+        <EntityType Name="Firms">
+          <Key>
+            <PropertyRef Name="IdFirm" />
+          </Key>
+          <Property Name="IdFirm" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Films_Firms" FromRole="Firms" ToRole="Films" />
+        </EntityType>
+        <EntityType Name="Genders">
+          <Key>
+            <PropertyRef Name="IdGender" />
+          </Key>
+          <Property Name="IdGender" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenderName" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Genders" FromRole="Genders" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Genres">
+          <Key>
+            <PropertyRef Name="IdGenre" />
+          </Key>
+          <Property Name="IdGenre" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GenreName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GenreDescription" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="FilmsGeners" Relationship="Self.FK_FilmsGeners_Genres" FromRole="Genres" ToRole="FilmsGeners" />
+        </EntityType>
+        <EntityType Name="Halls">
+          <Key>
+            <PropertyRef Name="IdHall" />
+          </Key>
+          <Property Name="IdHall" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HallNumber" Type="Int32" Nullable="false" />
+          <Property Name="HallPlaces" Type="Int32" Nullable="false" />
+          <Property Name="HallRows" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Seances_Halls" FromRole="Halls" ToRole="Seances" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="IdPost" />
+          </Key>
+          <Property Name="IdPost" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PostName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_Employees_Posts" FromRole="Posts" ToRole="Employees" />
+        </EntityType>
+        <EntityType Name="Requirements">
+          <Key>
+            <PropertyRef Name="IdRequirements" />
+          </Key>
+          <Property Name="IdRequirements" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirementName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="RequirementsEmployees" Relationship="Self.FK_RequirementsEmployees_Requirements" FromRole="Requirements" ToRole="RequirementsEmployees" />
+        </EntityType>
+        <EntityType Name="RequirementsEmployees">
+          <Key>
+            <PropertyRef Name="IdRequirementsEmployees" />
+          </Key>
+          <Property Name="IdRequirementsEmployees" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RequirementId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_RequirementsEmployees_Employees" FromRole="RequirementsEmployees" ToRole="Employees" />
+          <NavigationProperty Name="Requirements" Relationship="Self.FK_RequirementsEmployees_Requirements" FromRole="RequirementsEmployees" ToRole="Requirements" />
+        </EntityType>
+        <EntityType Name="Responsibilities">
+          <Key>
+            <PropertyRef Name="IdResponsibilities" />
+          </Key>
+          <Property Name="IdResponsibilities" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResponsibilityName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ResponsibilitiesEmployees" Relationship="Self.FK_ResponsibilitiesEmployees_Responsibilities" FromRole="Responsibilities" ToRole="ResponsibilitiesEmployees" />
+        </EntityType>
+        <EntityType Name="ResponsibilitiesEmployees">
+          <Key>
+            <PropertyRef Name="IdResponsibilitiesEmployees" />
+          </Key>
+          <Property Name="IdResponsibilitiesEmployees" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResponsibilityId" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Employees" Relationship="Self.FK_ResponsibilitiesEmployees_Employees" FromRole="ResponsibilitiesEmployees" ToRole="Employees" />
+          <NavigationProperty Name="Responsibilities" Relationship="Self.FK_ResponsibilitiesEmployees_Responsibilities" FromRole="ResponsibilitiesEmployees" ToRole="Responsibilities" />
+        </EntityType>
+        <EntityType Name="Seances">
+          <Key>
+            <PropertyRef Name="IdSeance" />
+          </Key>
+          <Property Name="IdSeance" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FilmId" Type="Int32" Nullable="false" />
+          <Property Name="HallId" Type="Int32" Nullable="false" />
+          <Property Name="SeanceDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="SeanceStartTime" Type="Time" Nullable="false" Precision="2" />
+          <Property Name="SeanceCost" Type="Double" />
+          <NavigationProperty Name="Films" Relationship="Self.FK_Seances_Films" FromRole="Seances" ToRole="Films" />
+          <NavigationProperty Name="Halls" Relationship="Self.FK_Seances_Halls" FromRole="Seances" ToRole="Halls" />
+          <NavigationProperty Name="Tickets" Relationship="Self.FK_Tickets_Seances" FromRole="Seances" ToRole="Tickets" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tickets">
+          <Key>
+            <PropertyRef Name="IdTicket" />
+          </Key>
+          <Property Name="IdTicket" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SeanceId" Type="Int32" Nullable="false" />
+          <Property Name="TicketPlace" Type="Int32" Nullable="false" />
+          <Property Name="TicketRow" Type="Int32" Nullable="false" />
+          <Property Name="TicketCost" Type="Double" Nullable="false" />
+          <Property Name="TicketPayDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="TicketType" Type="Int32" />
+          <NavigationProperty Name="Seances" Relationship="Self.FK_Tickets_Seances" FromRole="Tickets" ToRole="Seances" />
+        </EntityType>
+        <Association Name="FK_ActorsFilms_Actors">
+          <End Role="Actors" Type="Self.Actors" Multiplicity="1" />
+          <End Role="ActorsFilms" Type="Self.ActorsFilms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actors">
+              <PropertyRef Name="IdActor" />
+            </Principal>
+            <Dependent Role="ActorsFilms">
+              <PropertyRef Name="ActorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ActorsFilms_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="ActorsFilms" Type="Self.ActorsFilms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="ActorsFilms">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_AgeLimits">
+          <End Role="AgeLimits" Type="Self.AgeLimits" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AgeLimits">
+              <PropertyRef Name="IdAgeLimits" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="AgeLimitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_Countries">
+          <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="IdCountry" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Genders">
+          <End Role="Genders" Type="Self.Genders" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genders">
+              <PropertyRef Name="IdGender" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="GenderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Employees_Posts">
+          <End Role="Posts" Type="Self.Posts" Multiplicity="1" />
+          <End Role="Employees" Type="Self.Employees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="IdPost" />
+            </Principal>
+            <Dependent Role="Employees">
+              <PropertyRef Name="PostId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementsEmployees_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="RequirementsEmployees" Type="Self.RequirementsEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="IdEmployee" />
+            </Principal>
+            <Dependent Role="RequirementsEmployees">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsibilitiesEmployees_Employees">
+          <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
+          <End Role="ResponsibilitiesEmployees" Type="Self.ResponsibilitiesEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employees">
+              <PropertyRef Name="IdEmployee" />
+            </Principal>
+            <Dependent Role="ResponsibilitiesEmployees">
+              <PropertyRef Name="EmployeeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Films_Firms">
+          <End Role="Firms" Type="Self.Firms" Multiplicity="1" />
+          <End Role="Films" Type="Self.Films" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Firms">
+              <PropertyRef Name="IdFirm" />
+            </Principal>
+            <Dependent Role="Films">
+              <PropertyRef Name="FirmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmsGeners_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="FilmsGeners" Type="Self.FilmsGeners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="FilmsGeners">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seances_Films">
+          <End Role="Films" Type="Self.Films" Multiplicity="1" />
+          <End Role="Seances" Type="Self.Seances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Films">
+              <PropertyRef Name="IdFilm" />
+            </Principal>
+            <Dependent Role="Seances">
+              <PropertyRef Name="FilmId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FilmsGeners_Genres">
+          <End Role="Genres" Type="Self.Genres" Multiplicity="1" />
+          <End Role="FilmsGeners" Type="Self.FilmsGeners" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Genres">
+              <PropertyRef Name="IdGenre" />
+            </Principal>
+            <Dependent Role="FilmsGeners">
+              <PropertyRef Name="GenreId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Seances_Halls">
+          <End Role="Halls" Type="Self.Halls" Multiplicity="1" />
+          <End Role="Seances" Type="Self.Seances" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Halls">
+              <PropertyRef Name="IdHall" />
+            </Principal>
+            <Dependent Role="Seances">
+              <PropertyRef Name="HallId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RequirementsEmployees_Requirements">
+          <End Role="Requirements" Type="Self.Requirements" Multiplicity="1" />
+          <End Role="RequirementsEmployees" Type="Self.RequirementsEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Requirements">
+              <PropertyRef Name="IdRequirements" />
+            </Principal>
+            <Dependent Role="RequirementsEmployees">
+              <PropertyRef Name="RequirementId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResponsibilitiesEmployees_Responsibilities">
+          <End Role="Responsibilities" Type="Self.Responsibilities" Multiplicity="1" />
+          <End Role="ResponsibilitiesEmployees" Type="Self.ResponsibilitiesEmployees" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Responsibilities">
+              <PropertyRef Name="IdResponsibilities" />
+            </Principal>
+            <Dependent Role="ResponsibilitiesEmployees">
+              <PropertyRef Name="ResponsibilityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Tickets_Seances">
+          <End Role="Seances" Type="Self.Seances" Multiplicity="1" />
+          <End Role="Tickets" Type="Self.Tickets" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Seances">
+              <PropertyRef Name="IdSeance" />
+            </Principal>
+            <Dependent Role="Tickets">
+              <PropertyRef Name="SeanceId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FilmsDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actors" EntityType="Self.Actors" />
+          <EntitySet Name="ActorsFilms" EntityType="Self.ActorsFilms" />
+          <EntitySet Name="Admins" EntityType="Self.Admins" />
+          <EntitySet Name="AgeLimits" EntityType="Self.AgeLimits" />
+          <EntitySet Name="Countries" EntityType="Self.Countries" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" />
+          <EntitySet Name="Films" EntityType="Self.Films" />
+          <EntitySet Name="FilmsGeners" EntityType="Self.FilmsGeners" />
+          <EntitySet Name="Firms" EntityType="Self.Firms" />
+          <EntitySet Name="Genders" EntityType="Self.Genders" />
+          <EntitySet Name="Genres" EntityType="Self.Genres" />
+          <EntitySet Name="Halls" EntityType="Self.Halls" />
+          <EntitySet Name="Posts" EntityType="Self.Posts" />
+          <EntitySet Name="Requirements" EntityType="Self.Requirements" />
+          <EntitySet Name="RequirementsEmployees" EntityType="Self.RequirementsEmployees" />
+          <EntitySet Name="Responsibilities" EntityType="Self.Responsibilities" />
+          <EntitySet Name="ResponsibilitiesEmployees" EntityType="Self.ResponsibilitiesEmployees" />
+          <EntitySet Name="Seances" EntityType="Self.Seances" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tickets" EntityType="Self.Tickets" />
+          <AssociationSet Name="FK_ActorsFilms_Actors" Association="Self.FK_ActorsFilms_Actors">
+            <End Role="Actors" EntitySet="Actors" />
+            <End Role="ActorsFilms" EntitySet="ActorsFilms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ActorsFilms_Films" Association="Self.FK_ActorsFilms_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="ActorsFilms" EntitySet="ActorsFilms" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_AgeLimits" Association="Self.FK_Films_AgeLimits">
+            <End Role="AgeLimits" EntitySet="AgeLimits" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_Countries" Association="Self.FK_Films_Countries">
+            <End Role="Countries" EntitySet="Countries" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Genders" Association="Self.FK_Employees_Genders">
+            <End Role="Genders" EntitySet="Genders" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Employees_Posts" Association="Self.FK_Employees_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Employees" EntitySet="Employees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementsEmployees_Employees" Association="Self.FK_RequirementsEmployees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="RequirementsEmployees" EntitySet="RequirementsEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsibilitiesEmployees_Employees" Association="Self.FK_ResponsibilitiesEmployees_Employees">
+            <End Role="Employees" EntitySet="Employees" />
+            <End Role="ResponsibilitiesEmployees" EntitySet="ResponsibilitiesEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Films_Firms" Association="Self.FK_Films_Firms">
+            <End Role="Firms" EntitySet="Firms" />
+            <End Role="Films" EntitySet="Films" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmsGeners_Films" Association="Self.FK_FilmsGeners_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="FilmsGeners" EntitySet="FilmsGeners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seances_Films" Association="Self.FK_Seances_Films">
+            <End Role="Films" EntitySet="Films" />
+            <End Role="Seances" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FilmsGeners_Genres" Association="Self.FK_FilmsGeners_Genres">
+            <End Role="Genres" EntitySet="Genres" />
+            <End Role="FilmsGeners" EntitySet="FilmsGeners" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Seances_Halls" Association="Self.FK_Seances_Halls">
+            <End Role="Halls" EntitySet="Halls" />
+            <End Role="Seances" EntitySet="Seances" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RequirementsEmployees_Requirements" Association="Self.FK_RequirementsEmployees_Requirements">
+            <End Role="Requirements" EntitySet="Requirements" />
+            <End Role="RequirementsEmployees" EntitySet="RequirementsEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResponsibilitiesEmployees_Responsibilities" Association="Self.FK_ResponsibilitiesEmployees_Responsibilities">
+            <End Role="Responsibilities" EntitySet="Responsibilities" />
+            <End Role="ResponsibilitiesEmployees" EntitySet="ResponsibilitiesEmployees" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Tickets_Seances" Association="Self.FK_Tickets_Seances">
+            <End Role="Seances" EntitySet="Seances" />
+            <End Role="Tickets" EntitySet="Tickets" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище FilmsDBModelContainer" CdmEntityContainer="FilmsDBEntities">
+          <EntitySetMapping Name="Actors">
+            <EntityTypeMapping TypeName="FilmsDBModel.Actors">
+              <MappingFragment StoreEntitySet="Actors">
+                <ScalarProperty Name="IdActor" ColumnName="IdActor" />
+                <ScalarProperty Name="ActorName" ColumnName="ActorName" />
+                <ScalarProperty Name="ActorSurname" ColumnName="ActorSurname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActorsFilms">
+            <EntityTypeMapping TypeName="FilmsDBModel.ActorsFilms">
+              <MappingFragment StoreEntitySet="ActorsFilms">
+                <ScalarProperty Name="IdActorsFilms" ColumnName="IdActorsFilms" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="ActorId" ColumnName="ActorId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="FilmsDBModel.Admins">
+              <MappingFragment StoreEntitySet="Admins">
+                <ScalarProperty Name="IdAdmin" ColumnName="IdAdmin" />
+                <ScalarProperty Name="AdminLogin" ColumnName="AdminLogin" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+                <ScalarProperty Name="AdminSurname" ColumnName="AdminSurname" />
+                <ScalarProperty Name="AdminPatronymic" ColumnName="AdminPatronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AgeLimits">
+            <EntityTypeMapping TypeName="FilmsDBModel.AgeLimits">
+              <MappingFragment StoreEntitySet="AgeLimits">
+                <ScalarProperty Name="IdAgeLimits" ColumnName="IdAgeLimits" />
+                <ScalarProperty Name="AgeLimitValue" ColumnName="AgeLimitValue" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Countries">
+            <EntityTypeMapping TypeName="FilmsDBModel.Countries">
+              <MappingFragment StoreEntitySet="Countries">
+                <ScalarProperty Name="IdCountry" ColumnName="IdCountry" />
+                <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="FilmsDBModel.Employees">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeSurname" ColumnName="EmployeeSurname" />
+                <ScalarProperty Name="EmployeePatronymic" ColumnName="EmployeePatronymic" />
+                <ScalarProperty Name="EmployeeAge" ColumnName="EmployeeAge" />
+                <ScalarProperty Name="GenderId" ColumnName="GenderId" />
+                <ScalarProperty Name="EmployeeAdress" ColumnName="EmployeeAdress" />
+                <ScalarProperty Name="EmployeePhone" ColumnName="EmployeePhone" />
+                <ScalarProperty Name="EmployeePassportSeria" ColumnName="EmployeePassportSeria" />
+                <ScalarProperty Name="EmployeePassportNumber" ColumnName="EmployeePassportNumber" />
+                <ScalarProperty Name="PostId" ColumnName="PostId" />
+                <ScalarProperty Name="EmployeeSalary" ColumnName="EmployeeSalary" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Films">
+            <EntityTypeMapping TypeName="FilmsDBModel.Films">
+              <MappingFragment StoreEntitySet="Films">
+                <ScalarProperty Name="IdFilm" ColumnName="IdFilm" />
+                <ScalarProperty Name="FilmName" ColumnName="FilmName" />
+                <ScalarProperty Name="FilmDuration" ColumnName="FilmDuration" />
+                <ScalarProperty Name="FirmId" ColumnName="FirmId" />
+                <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+                <ScalarProperty Name="AgeLimitId" ColumnName="AgeLimitId" />
+                <ScalarProperty Name="FilmDescription" ColumnName="FilmDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FilmsGeners">
+            <EntityTypeMapping TypeName="FilmsDBModel.FilmsGeners">
+              <MappingFragment StoreEntitySet="FilmsGeners">
+                <ScalarProperty Name="FilmsGenresId" ColumnName="FilmsGenresId" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="GenreId" ColumnName="GenreId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Firms">
+            <EntityTypeMapping TypeName="FilmsDBModel.Firms">
+              <MappingFragment StoreEntitySet="Firms">
+                <ScalarProperty Name="IdFirm" ColumnName="IdFirm" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genders">
+            <EntityTypeMapping TypeName="FilmsDBModel.Genders">
+              <MappingFragment StoreEntitySet="Genders">
+                <ScalarProperty Name="IdGender" ColumnName="IdGender" />
+                <ScalarProperty Name="GenderName" ColumnName="GenderName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Genres">
+            <EntityTypeMapping TypeName="FilmsDBModel.Genres">
+              <MappingFragment StoreEntitySet="Genres">
+                <ScalarProperty Name="IdGenre" ColumnName="IdGenre" />
+                <ScalarProperty Name="GenreName" ColumnName="GenreName" />
+                <ScalarProperty Name="GenreDescription" ColumnName="GenreDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Halls">
+            <EntityTypeMapping TypeName="FilmsDBModel.Halls">
+              <MappingFragment StoreEntitySet="Halls">
+                <ScalarProperty Name="IdHall" ColumnName="IdHall" />
+                <ScalarProperty Name="HallNumber" ColumnName="HallNumber" />
+                <ScalarProperty Name="HallPlaces" ColumnName="HallPlaces" />
+                <ScalarProperty Name="HallRows" ColumnName="HallRows" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="FilmsDBModel.Posts">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="IdPost" ColumnName="IdPost" />
+                <ScalarProperty Name="PostName" ColumnName="PostName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Requirements">
+            <EntityTypeMapping TypeName="FilmsDBModel.Requirements">
+              <MappingFragment StoreEntitySet="Requirements">
+                <ScalarProperty Name="IdRequirements" ColumnName="IdRequirements" />
+                <ScalarProperty Name="RequirementName" ColumnName="RequirementName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequirementsEmployees">
+            <EntityTypeMapping TypeName="FilmsDBModel.RequirementsEmployees">
+              <MappingFragment StoreEntitySet="RequirementsEmployees">
+                <ScalarProperty Name="IdRequirementsEmployees" ColumnName="IdRequirementsEmployees" />
+                <ScalarProperty Name="RequirementId" ColumnName="RequirementId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Responsibilities">
+            <EntityTypeMapping TypeName="FilmsDBModel.Responsibilities">
+              <MappingFragment StoreEntitySet="Responsibilities">
+                <ScalarProperty Name="IdResponsibilities" ColumnName="IdResponsibilities" />
+                <ScalarProperty Name="ResponsibilityName" ColumnName="ResponsibilityName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResponsibilitiesEmployees">
+            <EntityTypeMapping TypeName="FilmsDBModel.ResponsibilitiesEmployees">
+              <MappingFragment StoreEntitySet="ResponsibilitiesEmployees">
+                <ScalarProperty Name="IdResponsibilitiesEmployees" ColumnName="IdResponsibilitiesEmployees" />
+                <ScalarProperty Name="ResponsibilityId" ColumnName="ResponsibilityId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seances">
+            <EntityTypeMapping TypeName="FilmsDBModel.Seances">
+              <MappingFragment StoreEntitySet="Seances">
+                <ScalarProperty Name="IdSeance" ColumnName="IdSeance" />
+                <ScalarProperty Name="FilmId" ColumnName="FilmId" />
+                <ScalarProperty Name="HallId" ColumnName="HallId" />
+                <ScalarProperty Name="SeanceDate" ColumnName="SeanceDate" />
+                <ScalarProperty Name="SeanceStartTime" ColumnName="SeanceStartTime" />
+                <ScalarProperty Name="SeanceCost" ColumnName="SeanceCost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="FilmsDBModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="FilmsDBModel.Tickets">
+              <MappingFragment StoreEntitySet="Tickets">
+                <ScalarProperty Name="IdTicket" ColumnName="IdTicket" />
+                <ScalarProperty Name="SeanceId" ColumnName="SeanceId" />
+                <ScalarProperty Name="TicketPlace" ColumnName="TicketPlace" />
+                <ScalarProperty Name="TicketRow" ColumnName="TicketRow" />
+                <ScalarProperty Name="TicketCost" ColumnName="TicketCost" />
+                <ScalarProperty Name="TicketPayDate" ColumnName="TicketPayDate" />
+                <ScalarProperty Name="TicketType" ColumnName="TicketType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
